@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import Tweet from './Tweet'
+import Nav from './Component/Nav'
+import Shop from './Component/Shop'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App(){
+  
+  const [users,setUsers] = useState([
+    {name : "Jhone", con:"Hey There!!!"},
+    {name : "Smith", con:"Hi!! I'm New there..."},
+    {name :"Arya", con:"Okay then..."}
+  ]);
+
+  return(
+    <div className="main">
+      <Router>
+        <Nav />
+        <Switch >
+          <Route path="/" exact component={Home} ></Route>
+          <Route path="/shop" component={Shop} ></Route>
+        </Switch>
+      </Router>
+      <div className="app">
+   
+        {users.map( user => (
+          <Tweet name={user.name} con={user.con}/>
+        ))}
+      </div>
     </div>
   );
+}
+
+const Home = () =>{
+  return (<div>
+    <h1>Home Page</h1>
+  </div>);
 }
 
 export default App;
