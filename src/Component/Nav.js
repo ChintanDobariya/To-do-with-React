@@ -11,7 +11,7 @@ function Nav(){
 
   return(
     <nav>
-        <h3>Logo</h3>
+        <h3>To do List</h3>
         <ul className="nav-links">
             <Link style={navstyle} to="/">
                 <li>About</li>

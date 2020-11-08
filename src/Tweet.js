@@ -6,6 +6,7 @@ const [Like, setLike] = useState(0);
 
 const inc = () =>{
     Like ? setLike(Like-1) : setLike(Like+1);
+     
 };
 
     return(
